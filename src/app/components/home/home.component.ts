@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
 import { MyDataService } from 'src/app/services/my-data.service';
 
 
@@ -35,13 +34,17 @@ export class HomeComponent implements OnInit {
      console.log(result);
    }); 
 
-    this.search.subscribe((val:any)=>{
-      this.searchKey = val;
+    /*this.search.subscribe((val:any)=>{
+      this.searchKey = val; 
 
+    })*/
+    this.myDataService.search.subscribe((val:any)=>{
+      this.searchKey = val;
     })
   }
 
-  public search = new BehaviorSubject<string>("");
+  
+
  /*
   getUserList(){
       this.httpClient.get('https://rickandmortyapi.com/api/character/?page=19').subscribe((result:any)=>
