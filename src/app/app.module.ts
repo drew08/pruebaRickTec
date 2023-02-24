@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserMasterComponent } from './components/user-master/user-master.component';
+import { HomeComponent } from './components/home/home.component';
 
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    UserMasterComponent,
+    HomeComponent,
     NavBarComponent,
     FilterPipe
   ],

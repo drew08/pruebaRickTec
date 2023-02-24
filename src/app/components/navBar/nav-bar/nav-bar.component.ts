@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';  // <<<< import it here
-import { UserMasterComponent } from 'src/app/components/user-master/user-master.component';
+import { HomeComponent } from 'src/app/components/home/home.component';
 
 
 @Component({

@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import { MyDataService } from 'src/app/services/my-data.service';
 
 
 
 @Component({
-  selector: 'app-user-master',
-  templateUrl: './user-master.component.html',
-  styleUrls: ['./user-master.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class UserMasterComponent implements OnInit {
+export class HomeComponent implements OnInit {
  searchKey:string = "";
  public page!: number;
 
@@ -17,13 +18,23 @@ export class UserMasterComponent implements OnInit {
  filterPost = '';
  userList:any;
 
+ /*
  constructor( private httpClient: HttpClient) { 
   this.userList=[];
   //this.filteredPerson =[];
- }
+ } */
+
+ constructor( private myDataService: MyDataService) { }
 
   ngOnInit(): void {
-    this.getUserList();
+   // this.getUserList();
+
+   this.myDataService.getData().subscribe((result:any)=>
+   {
+     this.userList = result;
+     console.log(result);
+   }); 
+
     this.search.subscribe((val:any)=>{
       this.searchKey = val;
 
@@ -31,13 +42,13 @@ export class UserMasterComponent implements OnInit {
   }
 
   public search = new BehaviorSubject<string>("");
-
+ /*
   getUserList(){
       this.httpClient.get('https://rickandmortyapi.com/api/character/?page=19').subscribe((result:any)=>
       {
         this.userList = result;
         console.log(result);
       })
-  }
+  } */
 
 }
